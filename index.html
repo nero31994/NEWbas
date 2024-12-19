@@ -25,27 +25,24 @@
                 autostart: true
             });
         }
-        function positionChannelSelect() {
-            const select = document.getElementById('channelSelect');
+        function loadChannel() {
+            
             Object.keys(channels).forEach(key => {
-                const option = document.createElement('option');
+                
                 option.value = key;
                 option.textContent = channels[key].name;
                 select.appendChild(option);
             });
         }
         window.onload = function() {
-            positionChannelSelect();
+            loadstream();
             
             const channelSelect = document.getElementById('channelSelect');
             channelSelect.addEventListener('change', function() {
                 loadStream(this.value);
             });
 
-            const menuToggle = document.getElementById('menuToggle');
-            const closeMenu = document.getElementById('closeMenu');
-            const slideMenu = document.getElementById('slideMenu');
-
+            
             menuToggle.addEventListener('click', () => {
                 slideMenu.classList.remove('translate-x-full');
             });
